@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Outline
+{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            max-width: 100%;
+        }
+        .row {
+            padding-bottom: 5px;
+            /*padding-top: 5px;*/
+        }
+    </style>
+
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 flex-column d-flex">
+                    <h2>Gathering and Preparation</h2>
+                    <p>
+                        We decided to base our model off the Dow Jones Industrial average to predict future prices based off the past 10 years.
+                        The data was pulled from Yahoo Finance where each data point represents the opening price at the beginning of the week.
+                    </p>
+                    <div style="text-align: center">
+                        <img src="../static/images/dataCapture.png" width="1000" height="208">
+                    </div>
+                    <h5 style="padding-top: 15px">Analyze and splitting the dataset</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 flex-column d-flex" >
+                    <div style="text-align: center">
+                        <img src="../static/images/analysis.png" height="2316" width="1173">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 flex-column d-flex">
+                    <h5>Model training and testing using linear regression</h5>
+                    <div style="text-align: center">
+                        <img src="../static/images/modelCreation.png" height="2253" width="1170">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

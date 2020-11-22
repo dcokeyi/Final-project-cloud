@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2020-11-17T05:15:16Z"
+  generation: 2
+  labels:
+    app: finalproject
+  name: finalproject
+  namespace: default
+  resourceVersion: "1592"
+  selfLink: /apis/apps/v1/namespaces/default/deployments/finalproject
+  uid: 4584fa24-14fc-4b5d-8906-7c859bd24cf8
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: finalproject
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: finalproject
+    spec:
+      containers:
+      - image: gcr.io/final-project-comp-4312/finalproject:v1
+        imagePullPolicy: IfNotPresent
+        name: finalproject
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 3
+  conditions:
+  - lastTransitionTime: "2020-11-17T05:16:03Z"
+    lastUpdateTime: "2020-11-17T05:16:03Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2020-11-17T05:15:16Z"
+    lastUpdateTime: "2020-11-17T05:16:03Z"
+    message: ReplicaSet "finalproject-6db78fc9db" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 2
+  readyReplicas: 3
+  replicas: 3
+  updatedReplicas: 3

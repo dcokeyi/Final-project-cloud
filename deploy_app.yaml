@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cc-final
+  labels:
+    app: cc-final
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cc-final
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: cc-final
+    spec:
+      containers:
+        - name: cc-final
+          image: gcr.io/cc-final-296102/cc-final
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: cloudsql-db-credentials
+                  key: username
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: cloudsql-db-credentials
+                  key: password
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: cloudsql-db-credentials
+                  key: dbname
+            - name: CLOUD_SQL_CONNECTION_NAME
+              value: "cc-final-296102:us-east4:cc-final-database"
+            - name: DB_HOST
+              value: "3306"
+        - name: cloud-sql-proxy
+          image: gcr.io/cloudsql-docker/gce-proxy:1.17
+          command: [ "/cloud_sql_proxy",
+                     "-instances=cc-final-296102:us-east4:cc-final-database=tcp:3306",
+                     "-credential_file=/secrets/cloudsql/sql_credentials.json"]
+          volumeMounts:
+          - name: my-secrets-volume
+            mountPath: /secrets/cloudsql
+            readOnly: true
+      volumes:
+      - name: my-secrets-volume
+        secret:
+          secretName: cloudsql-instance-credentials

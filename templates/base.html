@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1 shrink-to-fit=no">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand mb-0 h1">Cloud Computing Project</a>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Outline</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/team">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/inference">Inference</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/sqlFunctionality">SQL Store & Retrieve</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                {% block content %}
+                {% endblock%}
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

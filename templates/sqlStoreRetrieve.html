@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Cloud SQL Retrieve
+    {% endblock %}
+{% block content %}
+<script>
+    function myFunction() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+    }
+    </script>
+    <h1>Retrieve Database Entries</h1>
+    <ol>
+        {% for entry in entries %}
+            <li>Date: {{ entry.date }} Predicted Price: {{ entry.predicted_price }}</li>
+        {% endfor %}
+    </ol>
+
+    <div>
+        <a href="/csv">
+            Download
+        </a>
+    </div>
+
+    <div id="myTable" class="table-wrapper-scroll-y my-custom-scrollbar">
+
+        <table id="myTable" class="table table-bordered table-striped mb-0">
+              
+                          <tr class="header">
+                              <th style="width:40%;">Input</th>
+                              <th style="width:40%;">Prediction</th>
+                              <th style="width:20%;">accuracy</th>
+                          </tr>
+                              {% for row in rows %}
+                          <tr>                        
+                              <td>{{ row.0 }}</td>
+                              <td>{{ row.1 }}</td>
+                              <td>{{ row.2 }}</td>
+                                  {% endfor %}
+                          </tr>
+              </table>
+      </div>
+{% endblock %}
