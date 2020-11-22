@@ -65,7 +65,3 @@ spec:
     app: finalproject
   sessionAffinity: None
   type: LoadBalancer
-<<<<<<< HEAD
-
-=======
->>>>>>> 0b01ff67b722606cb0af6d2897770f00faa17eeb
