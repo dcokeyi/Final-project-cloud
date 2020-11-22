@@ -5,27 +5,41 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Inference</h1>
+    <style>
+        body {
+            background-image: url('https://media-exp1.licdn.com/dms/image/C561BAQF7xZdKCxp6bQ/company-background_10000/0?e=2159024400&v=beta&t=ifrf-xxRaUEtIs9pE_DyO68hM0UG0sAe40fO4UYMfFY');
+            background-repeat: no-repeat;
+            background-attachment: fixed;  
+            background-size: cover;
+            }
+        .jumbotron {
+        background: rgba(228, 228, 228, 0.5); 
+        }
+    </style>
+    
+    
+    <div class="jumbotron"> 
+<h1>Inference</h1>
     <section>
-        <form method ="POST" action="/inference">
+        <form method ="POST" action="http://127.0.0.1:8080/inference">
             <div>
                 <label for="input"> 
-                    ENTER DATE FROM 40000+
+                    <p>Enter Date Value (40000+):</p>
                 </label>
                <P><input type= "text" name="date"></P> 
-               <p><input type="submit" value="Predict & Submit to Database"></p>
+               <p><input type="submit" value="SUBMIT DATE"></p>
             </div>
             <div>
-                <label for="input">
-                    THE STOCK PRICE WOULD BE:
+                <label for="input"> 
+                    <p>Estimated Stock Price:</p>
                 </label>
                <p>${{ price }}</p>
-               <label for="input">
-                    THE ACCURACY OF THE DATA IS:
+               <label for="input"> 
+                    <p>Estimated Accuray:</p> 
                 </label>
                <p>{{ accuracy }}</p>
-                <p>{{ status }}</p>
-            </div>
+                </div>
         </form>
     </section>
+</div>
 {% endblock %}

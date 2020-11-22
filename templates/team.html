@@ -5,15 +5,63 @@
 {% endblock %}
 
 {% block content %}
-<body>
-    <h1>Team</h1>
-    <h2>Team Members</h2>
- <ul>
-    <li>Sajith Nandith (0870240)- SQL</li>
-    <li>Pinney Nicholas (0696399)-Analysis and prediction </li>
-    <li>Muhammad Shakeel (0903170) and Divine- Inference Page</li>
-    <li>Okey-Ikeri, Divine (0650414)-Teams and HTML</li>
-</ul>
-</body>
+    <head> 
+    <style> 
+table.customTable {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #D4D4D4;
+  border-style: solid;
+  color: #000000;
+}
 
+table.customTable td, table.customTable th {
+  border-width: 2px;
+  border-color: #D4D4D4;
+  border-style: solid;
+  padding: 5px;
+}
+
+table.customTable thead {
+  background-color: #C2C2C2;
+}
+
+        body {
+            background-image: url('https://media-exp1.licdn.com/dms/image/C561BAQF7xZdKCxp6bQ/company-background_10000/0?e=2159024400&v=beta&t=ifrf-xxRaUEtIs9pE_DyO68hM0UG0sAe40fO4UYMfFY');
+            background-repeat: no-repeat;
+            background-attachment: fixed;  
+            background-size: cover;
+            }
+        .jumbotron {
+        background: rgba(228, 228, 228, 0.5); 
+        }
+    </style> 
+</head> 
+   
+<body> 
+<div class="jumbotron">
+    <h1>Team Distribution</h1>
+    <table class="customTable">
+        <thead>
+          <tr>
+            <th>Sajith Nandith (0870240)</th>
+            <th>Pinney Nicholas (0696399)</th>
+            <th>Muhammad Shakeel (0903170)</th>
+            <th>Okey-Ikeri, Divine (0650414)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SQL<br>CP2 PowerPoint<br>Final Report</td>
+            <td>Data Analysis & Prediction<br>Google Kubernetes Engine<br>Final Report<br>Website Skeleton</td>
+            <td>Inference Page<br>Website HTML<br>Final Report</td>
+            <td>Inference Page<br>Google Compute Engine<br>Team HTML<br>Final Report</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+    
+</body>
 {% endblock %}

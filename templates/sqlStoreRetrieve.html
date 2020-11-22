@@ -24,6 +24,18 @@
       }
     }
     </script>
+    <style>
+        body {
+            background-image: url('https://media-exp1.licdn.com/dms/image/C561BAQF7xZdKCxp6bQ/company-background_10000/0?e=2159024400&v=beta&t=ifrf-xxRaUEtIs9pE_DyO68hM0UG0sAe40fO4UYMfFY');
+            background-repeat: no-repeat;
+            background-attachment: fixed;  
+            background-size: cover;
+            }
+        .jumbotron {
+        background: rgba(228, 228, 228, 0.5); 
+        }
+    </style>
+    <div class="jumbotron">
     <h1>Retrieve Database Entries</h1>
     <ol>
         {% for entry in entries %}
@@ -55,4 +67,5 @@
                           </tr>
               </table>
       </div>
+   </div>
 {% endblock %}
